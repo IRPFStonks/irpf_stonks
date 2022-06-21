@@ -15,7 +15,7 @@
 		<ApplicationTitle>IRPFStonks.View</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.irpfstonks.view</ApplicationId>
+		<ApplicationId>com.irpfstonks.view</ApplicationId>
 		<ApplicationIdGuid>1A947625-70E2-4043-BAD7-84F705466733</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -32,14 +32,14 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\stonksiconfg.svg" Color="#041424" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <MauiSplashScreen Include="Resources\stonksiconfg.svg" Color="#041424" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+    <MauiImage Update="Resources\Images\stonks_image.svg"/>
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -47,5 +47,4 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
-
 </Project>
