@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IRPFStonks.View.Controls.MainPageHeader">
+    <VerticalStackLayout Spacing="10">
+        <FlexLayout>
+            <Image Source="irpf_stonks_logo_dark_color.png"
+                   SemanticProperties.Description="IRPF Stonks Logo"
+                   HeightRequest="100"
+                   Margin="5"
+                   HorizontalOptions="Start" />
+
+            <Label Text="IRPF Stonks"
+                   HorizontalOptions="Start"
+                   FontSize="Header" />
+        </FlexLayout>
+
+        <FlexLayout JustifyContent="SpaceEvenly" Wrap="Wrap">
+            <Button Text="Upload Planilhas B3"
+                    FontSize="Title"
+                    BackgroundColor="#041424"
+                    WidthRequest="500"/>
+
+            <Button CornerRadius="100"
+                    ImageSource="heart_icon.png" />
+            
+            <Button CornerRadius="100"
+                    ImageSource="share_icon.png" />
+
+
+        </FlexLayout>
+        
+    </VerticalStackLayout>
+</ContentView>
