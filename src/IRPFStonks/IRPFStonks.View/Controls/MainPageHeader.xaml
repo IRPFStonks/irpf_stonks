@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:iconHelper="clr-namespace:IRPFStonks.View.Helpers"
+             x:Class="IRPFStonks.View.Controls.MainPageHeader">
+    <VerticalStackLayout Spacing="30"
+                         HorizontalOptions="CenterAndExpand">
+        <FlexLayout Wrap="NoWrap">
+            <Image Source="irpf_stonks_logo_dark_color.png"
+                   SemanticProperties.Description="IRPF Stonks Logo"
+                   HeightRequest="100"
+                   Margin="5"
+                   HorizontalOptions="Start" />
+
+            <Label Text="IRPF Stonks"
+                   HorizontalOptions="Start"
+                   FontSize="Header" />
+        </FlexLayout>
+
+        <FlexLayout JustifyContent="SpaceEvenly"
+                    Wrap="Wrap">
+
+            <Button Text="Upload Planilhas B3"
+                    FontSize="Title"
+                    BackgroundColor="#041424"
+                    FlexLayout.Basis="80%"
+                    SemanticProperties.Description="Carregar planilha B3" />
+
+            <ImageButton Aspect="Center"
+                         SemanticProperties.Description="Gostei da applicação">
+                <ImageButton.Source>
+                    <FontImageSource FontFamily="IconFontTypes"
+                                     Glyph="{x:Static iconHelper:IconHelper.Heart}"
+                                     Color="#041424"/>
+                </ImageButton.Source>
+            </ImageButton>
+
+            <ImageButton Aspect="Center"
+                         SemanticProperties.Description="Compartilhar">
+                <ImageButton.Source>
+                    <FontImageSource FontFamily="IconFontTypes"
+                                     Glyph="{x:Static iconHelper:IconHelper.ShareCircle}"
+                                     Color="#041424" />
+                </ImageButton.Source>
+            </ImageButton>
+
+        </FlexLayout>
+
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+            <Label Text="Selecione um Ação"
+                   FontSize="Title"
+                   HorizontalOptions="CenterAndExpand"
+                   SemanticProperties.Description="Selecione" />
+            <Picker WidthRequest="500"
+                    HorizontalTextAlignment="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Petrobras</x:String>
+                        <x:String>Cielo</x:String>
+                        <x:String>Amazon</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentView>
