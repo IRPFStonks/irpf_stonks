@@ -3,9 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:IRPFStonks.View.Controls"
              x:Class="IRPFStonks.View.MainPage">
-			 
+
     <ScrollView>
-        <controls:MainPageHeader/>
+        <Grid ColumnDefinitions="*,*"
+              RowDefinitions="*,*">
+
+            <controls:MainPageHeader Grid.Column="0"
+                                     Grid.Row="0"
+                                     Grid.ColumnSpan="2" />
+
+            <controls:SummaryDisplay Grid.Column="0"
+                                     Grid.Row="1" />
+
+        </Grid>
     </ScrollView>
- 
+
 </ContentPage>
