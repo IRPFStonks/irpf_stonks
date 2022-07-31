@@ -14,7 +14,8 @@
 
             <Label Text="IRPF Stonks"
                    HorizontalOptions="Start"
-                   FontSize="Header" />
+                   FontSize="Header"
+                   FontAttributes="Bold"/>
         </FlexLayout>
 
         <FlexLayout JustifyContent="SpaceEvenly"
@@ -47,7 +48,7 @@
         </FlexLayout>
 
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
-            <Label Text="Selecione um Ação"
+            <Label Text="Selecione uma Ação"
                    FontSize="Title"
                    HorizontalOptions="CenterAndExpand"
                    SemanticProperties.Description="Selecione" />
