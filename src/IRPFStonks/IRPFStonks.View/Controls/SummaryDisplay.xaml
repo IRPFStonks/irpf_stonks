@@ -1,79 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:IRPFStonks.View.Controls.Custom"
              x:Class="IRPFStonks.View.Controls.SummaryDisplay">
 
     <VerticalStackLayout Spacing="30"
                          Margin="5">
 
-        <VerticalStackLayout>
-            <HorizontalStackLayout Spacing="10">
-                <Label Text="CNPJ" />
-                <Label Text="46.693.372/0001-41" />
-            </HorizontalStackLayout>
-            <BoxView HeightRequest="2"
-                     Color="Red" />
-        </VerticalStackLayout>
+        <controls:LabelWithUnderLine TitleValue="CNPJ"
+                                     DisplayValue="46.693.372/0001-41"
+                                     UnderlineColor="Red" />
 
         <Grid ColumnDefinitions="*,*"
               RowDefinitions="Auto,Auto,Auto"
               ColumnSpacing="20"
               RowSpacing="30">
 
-            <VerticalStackLayout Grid.Column="0"
-                                 Grid.Row="0">
-                <Label Text="Valor médio de compra"
-                       Style="{StaticResource SmallLabel}" />
-                <Label Text="R$ 50,65" />
-                <BoxView HeightRequest="2"
-                         Color="Blue" />
-            </VerticalStackLayout>
+            <controls:LabelWithUnderLine Grid.Column="0"
+                                         Grid.Row="0"
+                                         TitleValue="Valor médio de compra"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 50,65"
+                                         UnderlineColor="Blue" />
 
-            <VerticalStackLayout Grid.Column="1"
-                                 Grid.Row="0">
-                <Label Text="Soma Dividendos"
-                       Style="{StaticResource SmallLabel}" />
-                <Label Text="R$ 30,65" />
-                <BoxView HeightRequest="2"
-                         Color="Blue" />
-            </VerticalStackLayout>
+            <controls:LabelWithUnderLine Grid.Column="1"
+                                         Grid.Row="0"
+                                         TitleValue="Soma Dividendos"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 30,65"
+                                         UnderlineColor="Blue" />
 
-            <VerticalStackLayout Grid.Column="0"
-                                 Grid.Row="1">
-                <Label Text="Valor médio de venda"
-                       Style="{StaticResource SmallLabel}" />
-                <Label Text="R$ 80,65" />
-                <BoxView HeightRequest="2"
-                         Color="Blue" />
-            </VerticalStackLayout>
+            <controls:LabelWithUnderLine Grid.Column="0"
+                                         Grid.Row="1"
+                                         TitleValue="Valor médio de venda"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 80,65"
+                                         UnderlineColor="Blue" />
 
-            <VerticalStackLayout Grid.Column="1"
-                                 Grid.Row="1">
-                <Label Text="Soma Juros sobre Capital Próprio"
-                       Style="{StaticResource SmallLabel}" />
-                <Label Text="R$ 100,65" />
-                <BoxView HeightRequest="2"
-                         Color="Blue" />
-            </VerticalStackLayout>
+            <controls:LabelWithUnderLine Grid.Column="1"
+                                         Grid.Row="1"
+                                         TitleValue="Soma Juros Capital Próprio"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 100,65"
+                                         UnderlineColor="Blue" />
 
+            <controls:LabelWithUnderLine Grid.Column="0"
+                                         Grid.Row="2"
+                                         TitleValue="Soma dos Lucros"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 1000,65"
+                                         UnderlineColor="Blue" />
 
-            <VerticalStackLayout Grid.Column="0"
-                                 Grid.Row="2">
-                <Label Text="Soma dos Lucros"
-                       Style="{StaticResource SmallLabel}" />
-                <Label Text="R$ 1000,65" />
-                <BoxView HeightRequest="2"
-                         Color="Blue" />
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Grid.Column="1"
-                                 Grid.Row="2">
-                <Label Text="Provisões JCP"
-                       Style="{StaticResource SmallLabel}" />
-                <Label Text="R$ 25,65" />
-                <BoxView HeightRequest="2"
-                         Color="Blue" />
-            </VerticalStackLayout>
+            <controls:LabelWithUnderLine Grid.Column="1"
+                                         Grid.Row="2"
+                                         TitleValue="Provisões JCP"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 25,65"
+                                         UnderlineColor="Blue" />
 
 
         </Grid>
