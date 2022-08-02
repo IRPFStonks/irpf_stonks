@@ -8,6 +8,7 @@
                          Margin="5">
 
         <controls:LabelWithUnderLine TitleValue="CNPJ"
+                                     StackOrientation="Horizontal"
                                      DisplayValue="46.693.372/0001-41"
                                      UnderlineColor="Red" />
 
