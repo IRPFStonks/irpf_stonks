@@ -5,28 +5,23 @@ public partial class LabelWithUnderLine : ContentView
     public static readonly BindableProperty UnderlineProperty = BindableProperty.Create(nameof(UnderlineColor),
                                                                                         typeof(Color),
                                                                                         typeof(LabelWithUnderLine),
-                                                                                        Colors.BlanchedAlmond,
-                                                                                        propertyChanged: UnderlinePropertyChanged);
+                                                                                        Colors.BlanchedAlmond);
     public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(TitleValue),
                                                                                     typeof(string),
                                                                                     typeof(LabelWithUnderLine),
-                                                                                    string.Empty,
-                                                                                    propertyChanged: TitleValuePropertyChanged);
+                                                                                    string.Empty);
     public static readonly BindableProperty DisplayProperty = BindableProperty.Create(nameof(DisplayValue),
                                                                                       typeof(string),
                                                                                       typeof(LabelWithUnderLine),
-                                                                                      string.Empty,
-                                                                                      propertyChanged: DisplayValuePropertyChanged);
+                                                                                      string.Empty);
     public static readonly BindableProperty TitleStyleProperty = BindableProperty.Create(nameof(TitleStyle),
                                                                                       typeof(Style),
                                                                                       typeof(LabelWithUnderLine),
-                                                                                      null,
-                                                                                      propertyChanged: TitleStylePropertyChanged);
+                                                                                      null);
     public static readonly BindableProperty StackOrientationProperty = BindableProperty.Create(nameof(StackOrientation),
                                                                                      typeof(StackOrientation),
                                                                                      typeof(LabelWithUnderLine),
-                                                                                     StackOrientation.Horizontal,
-                                                                                     propertyChanged: StackOrientationPropertyChanged);
+                                                                                     StackOrientation.Horizontal);
     public Color UnderlineColor
     {
         get => (Color)GetValue(UnderlineProperty);
@@ -55,38 +50,6 @@ public partial class LabelWithUnderLine : ContentView
     {
         get => (StackOrientation)GetValue(StackOrientationProperty);
         set => SetValue(StackOrientationProperty, value);
-    }
-
-
-    private static void UnderlinePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-        var control = bindable as LabelWithUnderLine;
-        control.Underline.Color = newValue as Color;
-    }
-
-    private static void TitleValuePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-        var control = bindable as LabelWithUnderLine;
-        control.Title.Text = newValue?.ToString();
-    }
-
-    private static void DisplayValuePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-        var control = bindable as LabelWithUnderLine;
-        control.Display.Text = newValue?.ToString();
-    }
-
-
-    private static void TitleStylePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-        var control = bindable as LabelWithUnderLine;
-        control.Title.Style = newValue as Style;
-    }
-
-    private static void StackOrientationPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-        var control = bindable as LabelWithUnderLine;
-        control.Layout.Orientation = (StackOrientation) newValue;
     }
 
 

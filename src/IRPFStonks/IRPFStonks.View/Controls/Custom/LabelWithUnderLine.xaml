@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="this"
              x:Class="IRPFStonks.View.Controls.Custom.LabelWithUnderLine">
 
     <VerticalStackLayout>
-        <StackLayout x:Name="Layout" Spacing="10">
-            <Label x:Name="Title" />
-            <Label x:Name="Display" />
+        <StackLayout x:Name="Layout"
+                     Spacing="10"
+                     Orientation="{Binding Source={x:Reference this}, Path=StackOrientation}">
+            <Label x:Name="Title"
+                   Text="{Binding Source={x:Reference this}, Path=TitleValue}" />
+            <Label x:Name="Display"
+                   Text="{Binding Source={x:Reference this}, Path=DisplayValue}" />
         </StackLayout>
-        <BoxView x:Name="Underline" HeightRequest="2" />
+        <BoxView x:Name="Underline"
+                 HeightRequest="2"
+                 Color="{Binding Source={x:Reference this}, Path=UnderlineColor}" />
     </VerticalStackLayout>
 
 </ContentView>

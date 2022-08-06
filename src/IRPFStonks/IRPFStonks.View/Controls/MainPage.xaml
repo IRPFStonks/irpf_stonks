@@ -6,7 +6,8 @@
 
     <ScrollView>
         <Grid ColumnDefinitions="*,*"
-              RowDefinitions="*,*">
+              RowDefinitions="*,*"
+              ColumnSpacing="30">
 
             <controls:MainPageHeader Grid.Column="0"
                                      Grid.Row="0"
@@ -14,6 +15,9 @@
 
             <controls:SummaryDisplay Grid.Column="0"
                                      Grid.Row="1" />
+
+            <controls:LossesDisplay Grid.Column="1"
+                                   Grid.Row="1" />
 
         </Grid>
     </ScrollView>

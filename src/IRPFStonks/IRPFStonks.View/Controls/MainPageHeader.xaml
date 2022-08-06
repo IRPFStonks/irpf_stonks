@@ -10,7 +10,14 @@
                    SemanticProperties.Description="IRPF Stonks Logo"
                    HeightRequest="100"
                    Margin="5"
-                   HorizontalOptions="Start" />
+                   HorizontalOptions="Start">
+                <Image.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="2,5"
+                            Radius="4"
+                            Opacity="0.8" />
+                </Image.Shadow>
+            </Image>
 
             <Label Text="IRPF Stonks"
                    HorizontalOptions="Start"
