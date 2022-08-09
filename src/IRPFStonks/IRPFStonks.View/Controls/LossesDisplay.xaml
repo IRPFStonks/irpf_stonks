@@ -7,32 +7,43 @@
 
     <VerticalStackLayout>
 
-        <Border StrokeThickness="2"
-                StrokeShape="RoundRectangle 30,0,0,30"
-                Stroke="#bf1b47"
-                Padding="10"
-                Margin="10"
-                HorizontalOptions="Center">
-
-            <CollectionView x:Name="CollectionLosses"
-                            Header="Prejuízos">
+        <VerticalStackLayout>
+            <Label Text="Prejuízos"
+                   FontSize="Subtitle"
+                   BackgroundColor="AliceBlue" />
+            <CollectionView>
                 <CollectionView.ItemsSource>
                     <x:Array Type="{x:Type model:Loss}">
                         <model:Loss Month="Janeiro"
                                     Value="50.00" />
+                        <model:Loss Month="Fevereiro"
+                                    Value="51.00" />
+                        <model:Loss Month="Março"
+                                    Value="52.00" />
+                        <model:Loss Month="Abril"
+                                    Value="53.00" />
+                        <model:Loss Month="Maio"
+                                    Value="54.00" />
+                        <model:Loss Month="Junho"
+                                    Value="55.10" />
+                        <model:Loss Month="Julho"
+                                    Value="56.10" />
+                        <model:Loss Month="Agosto"
+                                    Value="57.10" />
                     </x:Array>
                 </CollectionView.ItemsSource>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Loss">
-                        <controls:LabelWithUnderLine TitleValue="Janeiro"
-                                                     TitleStyle="{StaticResource SmallLabel}"
-                                                     StackOrientation="Horizontal"
-                                                     DisplayValue="{Binding Value}"
-                                                     UnderlineColor="DodgerBlue" />
+                        <Grid ColumnDefinitions="*">
+                            <controls:LabelWithUnderLine TitleValue="{Binding Month}"
+                                                         TitleStyle="{StaticResource SmallLabel}"
+                                                         StackOrientation="Horizontal"
+                                                         DisplayValue="{Binding Value, StringFormat=R$ {0:c}}"
+                                                         UnderlineColor="DodgerBlue" />
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-
             </CollectionView>
-        </Border>
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentView>

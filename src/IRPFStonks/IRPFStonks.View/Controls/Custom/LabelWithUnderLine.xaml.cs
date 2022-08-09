@@ -2,15 +2,15 @@ namespace IRPFStonks.View.Controls.Custom;
 
 public partial class LabelWithUnderLine : ContentView
 {
-    public static readonly BindableProperty UnderlineProperty = BindableProperty.Create(nameof(UnderlineColor),
+    public static readonly BindableProperty UnderlineColorProperty = BindableProperty.Create(nameof(UnderlineColor),
                                                                                         typeof(Color),
                                                                                         typeof(LabelWithUnderLine),
                                                                                         Colors.BlanchedAlmond);
-    public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(TitleValue),
+    public static readonly BindableProperty TitleValueProperty = BindableProperty.Create(nameof(TitleValue),
                                                                                     typeof(string),
                                                                                     typeof(LabelWithUnderLine),
                                                                                     string.Empty);
-    public static readonly BindableProperty DisplayProperty = BindableProperty.Create(nameof(DisplayValue),
+    public static readonly BindableProperty DisplayValueProperty = BindableProperty.Create(nameof(DisplayValue),
                                                                                       typeof(string),
                                                                                       typeof(LabelWithUnderLine),
                                                                                       string.Empty);
@@ -24,20 +24,20 @@ public partial class LabelWithUnderLine : ContentView
                                                                                      StackOrientation.Horizontal);
     public Color UnderlineColor
     {
-        get => (Color)GetValue(UnderlineProperty);
-        set => SetValue(UnderlineProperty, value);
+        get => (Color)GetValue(UnderlineColorProperty);
+        set => SetValue(UnderlineColorProperty, value);
     }
 
     public string TitleValue
     {
-        get => (string)GetValue(TitleProperty);
-        set => SetValue(TitleProperty, value);
+        get => (string)GetValue(TitleValueProperty);
+        set => SetValue(TitleValueProperty, value);
     }
 
     public string DisplayValue
     {
-        get => (string)GetValue(DisplayProperty);
-        set => SetValue(DisplayProperty, value);
+        get => (string)GetValue(DisplayValueProperty);
+        set => SetValue(DisplayValueProperty, value);
     }
 
     public Style TitleStyle
