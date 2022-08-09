@@ -9,9 +9,11 @@
                      Spacing="10"
                      Orientation="{Binding Source={x:Reference this}, Path=StackOrientation}">
             <Label x:Name="Title"
-                   Text="{Binding Source={x:Reference this}, Path=TitleValue}" />
+                   Text="{Binding Source={x:Reference this}, Path=TitleValue}"
+                   Style="{Binding Source={x:Reference this}, Path=TitleStyle }"/>
             <Label x:Name="Display"
-                   Text="{Binding Source={x:Reference this}, Path=DisplayValue}" />
+                   Text="{Binding Source={x:Reference this}, Path=DisplayValue}"
+                   Style="{Binding Source={x:Reference this}, Path=TitleStyle }" />
         </StackLayout>
         <BoxView x:Name="Underline"
                  HeightRequest="2"

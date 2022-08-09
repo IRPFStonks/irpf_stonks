@@ -10,7 +10,7 @@ public partial class App : Application
 {
 
     const int WindowWidth = 900;
-    const int WindowHeight = 800;
+    const int WindowHeight = 900;
 
     public App()
     {

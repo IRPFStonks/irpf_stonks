@@ -7,7 +7,9 @@
     <ScrollView>
         <Grid ColumnDefinitions="*,*"
               RowDefinitions="*,*"
-              ColumnSpacing="30">
+              ColumnSpacing="30"
+              RowSpacing="10"
+              Padding="10">
 
             <controls:MainPageHeader Grid.Column="0"
                                      Grid.Row="0"

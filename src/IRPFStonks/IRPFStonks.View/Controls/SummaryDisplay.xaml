@@ -4,8 +4,7 @@
              xmlns:controls="clr-namespace:IRPFStonks.View.Controls.Custom"
              x:Class="IRPFStonks.View.Controls.SummaryDisplay">
 
-    <VerticalStackLayout Spacing="30"
-                         Margin="5">
+    <VerticalStackLayout Spacing="15">
 
         <controls:LabelWithUnderLine TitleValue="CNPJ"
                                      StackOrientation="Horizontal"

@@ -7,4 +7,15 @@
                 Value="Micro" />
     </Style>
 
+    <Style TargetType="Label" x:Key="LabelThemeBackGround">
+        <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding Light={StaticResource Cyan300Accent}, Dark={StaticResource Gray500}}" />
+    </Style>
+
+    <Style TargetType="FontImageSource">
+        <Setter Property="Color"
+                Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
+    </Style>
+
+
 </ResourceDictionary>
