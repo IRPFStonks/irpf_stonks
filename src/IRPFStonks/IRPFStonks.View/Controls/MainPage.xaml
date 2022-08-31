@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:IRPFStonks.View.Controls"
+             x:Class="IRPFStonks.View.MainPage">
+
+    <ScrollView>
+        <Grid ColumnDefinitions="*,*"
+              RowDefinitions="*,*"
+              ColumnSpacing="30"
+              Padding="10">
+
+            <controls:MainPageHeader Grid.Column="0"
+                                     Grid.Row="0"
+                                     Grid.ColumnSpan="2" />
+
+            <controls:SummaryDisplay Grid.Column="0"
+                                     Grid.Row="1" />
+
+            <controls:LossesDisplay Grid.Column="1"
+                                   Grid.Row="1" />
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
