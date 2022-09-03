@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:IRPFStonks.View.Controls.Custom"
+             x:Class="IRPFStonks.View.Controls.SummaryDisplay">
+
+    <VerticalStackLayout Spacing="15">
+
+        <controls:LabelWithUnderLine TitleValue="CNPJ"
+                                     StackOrientation="Horizontal"
+                                     DisplayValue="46.693.372/0001-41"
+                                     UnderlineColor="Red" />
+
+        <Grid ColumnDefinitions="*,*"
+              RowDefinitions="Auto,Auto,Auto"
+              ColumnSpacing="20"
+              RowSpacing="30">
+
+            <controls:LabelWithUnderLine Grid.Column="0"
+                                         Grid.Row="0"
+                                         TitleValue="Valor médio de compra"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 50,65"
+                                         UnderlineColor="Blue" />
+
+            <controls:LabelWithUnderLine Grid.Column="1"
+                                         Grid.Row="0"
+                                         TitleValue="Soma Dividendos"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 30,65"
+                                         UnderlineColor="Blue" />
+
+            <controls:LabelWithUnderLine Grid.Column="0"
+                                         Grid.Row="1"
+                                         TitleValue="Valor médio de venda"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 80,65"
+                                         UnderlineColor="Blue" />
+
+            <controls:LabelWithUnderLine Grid.Column="1"
+                                         Grid.Row="1"
+                                         TitleValue="Soma Juros Capital Próprio"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 100,65"
+                                         UnderlineColor="Blue" />
+
+            <controls:LabelWithUnderLine Grid.Column="0"
+                                         Grid.Row="2"
+                                         TitleValue="Soma dos Lucros"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 1000,65"
+                                         UnderlineColor="Blue" />
+
+            <controls:LabelWithUnderLine Grid.Column="1"
+                                         Grid.Row="2"
+                                         TitleValue="Provisões JCP"
+                                         StackOrientation="Vertical"
+                                         TitleStyle="{StaticResource SmallLabel}"
+                                         DisplayValue="R$ 25,65"
+                                         UnderlineColor="Blue" />
+
+
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentView>

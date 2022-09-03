@@ -3,35 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:iconHelper="clr-namespace:IRPFStonks.View.Helpers"
              x:Class="IRPFStonks.View.Controls.MainPageHeader">
-    <VerticalStackLayout Spacing="30"
-                         HorizontalOptions="CenterAndExpand">
-        <FlexLayout Wrap="NoWrap">
+    <VerticalStackLayout Spacing="30">
+        <HorizontalStackLayout>
+            
             <Image Source="irpf_stonks_logo_dark_color.png"
                    SemanticProperties.Description="IRPF Stonks Logo"
                    HeightRequest="100"
                    Margin="5"
-                   HorizontalOptions="Start" />
+                   HorizontalOptions="Start">
+                <Image.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="2,5"
+                            Radius="4"
+                            Opacity="0.8" />
+                </Image.Shadow>
+            </Image>
 
             <Label Text="IRPF Stonks"
                    HorizontalOptions="Start"
-                   FontSize="Header" />
-        </FlexLayout>
+                   FontSize="Header"
+                   FontAttributes="Bold"/>
+            
+        </HorizontalStackLayout>
 
-        <FlexLayout JustifyContent="SpaceEvenly"
-                    Wrap="Wrap">
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="30">
 
             <Button Text="Upload Planilhas B3"
                     FontSize="Title"
                     BackgroundColor="#041424"
-                    FlexLayout.Basis="80%"
+                    WidthRequest="500"
                     SemanticProperties.Description="Carregar planilha B3" />
 
             <ImageButton Aspect="Center"
                          SemanticProperties.Description="Gostei da applicação">
                 <ImageButton.Source>
                     <FontImageSource FontFamily="IconFontTypes"
-                                     Glyph="{x:Static iconHelper:IconHelper.Heart}"
-                                     Color="#041424"/>
+                                     Glyph="{x:Static iconHelper:IconHelper.Heart}"/>
                 </ImageButton.Source>
             </ImageButton>
 
@@ -39,15 +46,14 @@
                          SemanticProperties.Description="Compartilhar">
                 <ImageButton.Source>
                     <FontImageSource FontFamily="IconFontTypes"
-                                     Glyph="{x:Static iconHelper:IconHelper.ShareCircle}"
-                                     Color="#041424" />
+                                     Glyph="{x:Static iconHelper:IconHelper.ShareCircle}" />
                 </ImageButton.Source>
             </ImageButton>
 
-        </FlexLayout>
+        </HorizontalStackLayout>
 
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
-            <Label Text="Selecione um Ação"
+            <Label Text="Selecione uma Ação"
                    FontSize="Title"
                    HorizontalOptions="CenterAndExpand"
                    SemanticProperties.Description="Selecione" />

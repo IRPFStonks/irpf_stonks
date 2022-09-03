@@ -12,9 +12,6 @@ namespace IRPFStonks.View.WinUI;
 /// </summary>
 public partial class App : MauiWinUIApplication
 {
-    const int WindowWidth = 800;
-    const int WindowHeight = 600;
-
     /// <summary>
     /// Initializes the singleton application object.  This is the first line of authored code
     /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -22,17 +19,6 @@ public partial class App : MauiWinUIApplication
     public App()
     {
         this.InitializeComponent();
-
-        Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
-        {
-            var mauiWindow = handler.VirtualView;
-            var nativeWindow = handler.PlatformView;
-            nativeWindow.Activate();
-            IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(nativeWindow);
-            WindowId windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
-            AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
-            appWindow.Resize(new SizeInt32(WindowWidth, WindowHeight));
-        });
     }
 
     protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
