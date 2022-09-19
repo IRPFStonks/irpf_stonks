@@ -1,4 +1,4 @@
-﻿namespace IRPFStonks.BusinessLogic.Model
+﻿namespace IRPFStonks.BusinessLogic.Model.Movement
 {
     /// <summary>
     /// Class that represents an line from the Movimentação spread sheet from Brazilian Stock Exchange Agency
@@ -6,7 +6,7 @@
     public class StockMovement : IEquatable<StockMovement?>
     {
 
-        public StockMovement(string direction, DateTime date, string type, string stockCode, string stockCompany, string institution, double quantity, double unityPrice, double totalPrice)
+        public StockMovement(MovementDirection direction, DateTime date, MovementType type, string stockCode, string stockCompany, string institution, double quantity, double unityPrice, double totalPrice)
         {
             Direction = direction;
             Date = date;
@@ -22,7 +22,7 @@
         /// <summary>
         /// Gets Direction of the movement, Credit or Debit
         /// </summary>
-        public string Direction { get; set; }
+        public MovementDirection Direction { get; set; }
         /// <summary>
         /// Gets the date if the moviment
         /// </summary>
@@ -30,7 +30,7 @@
         /// <summary>
         /// Gets the Type of the moviment
         /// </summary>
-        public string Type { get; set; }
+        public MovementType Type { get; set; }
         /// <summary>
         /// Gets the Stock Code
         /// </summary>
@@ -56,7 +56,7 @@
         /// </summary>
         public double TotalPrice { get; set; }
 
-        public static StockMovement Empty => new("Saída", DateTime.UtcNow, "Dividendo", "IRPF01", "IRPFStonks", "Stonks Agency", 0, 0, 0);
+        public static StockMovement Empty => new(MovementDirection.Credit, DateTime.UtcNow, MovementType.Dividend, "IRPF01", "IRPFStonks", "Stonks Agency", 0, 0, 0);
 
         public override bool Equals(object? obj)
         {

@@ -1,4 +1,4 @@
-using IRPFStonks.BusinessLogic.Model;
+using IRPFStonks.BusinessLogic.Model.Movement;
 using System.Collections.Immutable;
 
 namespace IRPFStonks.BusinessLogic.NUnit
@@ -11,12 +11,12 @@ namespace IRPFStonks.BusinessLogic.NUnit
         [SetUp]
         public void Setup()
         {
-            _StockMoviments = ImmutableList.Create(new StockMovement("Credito", new DateTime(2021, 12, 30), "Dividendo", "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 60, 0.20, 12.00),
-                                                   new StockMovement("Credito", new DateTime(2021, 12, 30), "Juros Sobre Capital Próprio", "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 56, 0.02, 1.03),
-                                                   new StockMovement("Credito", new DateTime(2021, 12, 15), "Dividendo", "CRFB3", "ATACADAO S/A", "NOVA FUTURA CTVM LTDA", 50, 0.12, 6.00),
-                                                   new StockMovement("Debito", new DateTime(2021, 12, 08), "Transferência - Liquidação", "ABEV3", "AMBEV S/A", "NOVA FUTURA CTVM LTDA", 54, 16.12, 870.48),
-                                                   new StockMovement("Credito", new DateTime(2021, 06, 10), "Dividendo", "CRFB3", "ATACADAO S/A", "NOVA FUTURA CTVM LTDA", 50, 0.12, 6.00),
-                                                   new StockMovement("Credito", new DateTime(2021, 06, 30), "Dividendo", "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 60, 0.20, 12.00));
+            _StockMoviments = ImmutableList.Create(new StockMovement(MovementDirection.Credit, new DateTime(2021, 12, 30), MovementType.Dividend, "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 60, 0.20, 12.00),
+                                                   new StockMovement(MovementDirection.Credit, new DateTime(2021, 12, 30), MovementType.Jcp, "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 56, 0.02, 1.03),
+                                                   new StockMovement(MovementDirection.Credit, new DateTime(2021, 12, 15), MovementType.Dividend, "CRFB3", "ATACADAO S/A", "NOVA FUTURA CTVM LTDA", 50, 0.12, 6.00),
+                                                   new StockMovement(MovementDirection.Debit, new DateTime(2021, 12, 08), MovementType.TransferSettlement, "ABEV3", "AMBEV S/A", "NOVA FUTURA CTVM LTDA", 54, 16.12, 870.48),
+                                                   new StockMovement(MovementDirection.Credit, new DateTime(2021, 06, 10), MovementType.Dividend, "CRFB3", "ATACADAO S/A", "NOVA FUTURA CTVM LTDA", 50, 0.12, 6.00),
+                                                   new StockMovement(MovementDirection.Credit, new DateTime(2021, 06, 30), MovementType.Dividend, "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 60, 0.20, 12.00));
         }
 
         [Test]
@@ -37,8 +37,8 @@ namespace IRPFStonks.BusinessLogic.NUnit
         public void Dont_Calculate_Dividend_If_Direction_Different_Than_Credito()
         {
             var calculator = new DividendCalculator(ImmutableList.Create(
-                new StockMovement("Credito", new DateTime(2021, 12, 30), "Dividendo", "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 60, 0.20, 12.00),
-                new StockMovement("Debito", new DateTime(2021, 06, 30), "Dividendo", "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 60, 0.40, 24.00)));
+                new StockMovement(MovementDirection.Credit, new DateTime(2021, 12, 30), MovementType.Dividend, "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 60, 0.20, 12.00),
+                new StockMovement(MovementDirection.Debit, new DateTime(2021, 06, 30), MovementType.Dividend, "BBDC4", "BANCO BRADESCO S/A", "NOVA FUTURA CTVM LTDA", 60, 0.40, 24.00)));
 
             Assert.That(calculator.TotalDividends("BBDC4"), Is.EqualTo(12.00));
         }

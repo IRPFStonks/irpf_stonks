@@ -1,4 +1,4 @@
-﻿using IRPFStonks.BusinessLogic.Model;
+﻿using IRPFStonks.BusinessLogic.Model.Movement;
 
 namespace IRPFStonks.BusinessLogic
 {
@@ -26,7 +26,7 @@ namespace IRPFStonks.BusinessLogic
 
         private bool SelectDividends(StockMovement movement)
         {
-            return movement.Type.Equals("Dividendo", StringComparison.InvariantCultureIgnoreCase) && movement.Direction.Equals("Credito", StringComparison.InvariantCultureIgnoreCase);
+            return movement.Type.Equals(MovementType.Dividend) && movement.Direction.Equals(MovementDirection.Credit);
         }
 
         private double SumStrategy(StockMovement movement)
