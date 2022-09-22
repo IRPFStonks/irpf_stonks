@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: dotnet test --collect "XPlat Code Coverage" --no-build --verbosity normal
     - name: Test coverage
-      uses: kuju63/coverage-comment
+      uses: kuju63/coverage-comment@1.2.4
       with:
         token: ${{ github.token }}
         paths: src/IRPFStonks/*.NUnit/TestResults/**/coverage.cobertura.xml
