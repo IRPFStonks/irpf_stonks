@@ -32,7 +32,7 @@ jobs:
 
     - name: Test
       uses: zyborg/dotnet-tests-report@v1
-       with:
+      with:
         report_name: my_project_tests
         report_title: IRPFStonk Tests
         github_token: ${{ secrets.GITHUB_TOKEN }}
