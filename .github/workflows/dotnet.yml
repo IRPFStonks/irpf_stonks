@@ -7,8 +7,10 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: src/IRPFStonks
 
     steps:
     - name: Checkout
