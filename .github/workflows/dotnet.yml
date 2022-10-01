@@ -31,10 +31,8 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Test
-      run: dotnet test --collect "XPlat Code Coverage" --no-build --verbosity normal
-
-    - name: Test coverage
-      uses: kuju63/coverage-comment@v1.2.4
-      with:
-        token: ${{ github.token }}
-        paths: src/IRPFStonks/*.NUnit/TestResults/**/coverage.cobertura.xml
+      uses: zyborg/dotnet-tests-report@v1
+        with:
+          report_name: my_project_tests
+          report_title: IRPFStonk Tests
+          github_token: ${{ secrets.GITHUB_TOKEN }}
