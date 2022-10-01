@@ -34,8 +34,7 @@ jobs:
       uses: zyborg/dotnet-tests-report@v1
       with:
         project_path: src/IRPFStonks
-        report_name: IRPFStonk_Tests
+        report_name: IRPFStonk Tests Summary
         report_title: IRPFStonk Tests
         github_token: ${{ secrets.GITHUB_TOKEN }}
         set_check_status_from_test_outcome: true
-        gist_badge_label: 'IRPF Tests: %Counters_passed%/%Counters_total%'
