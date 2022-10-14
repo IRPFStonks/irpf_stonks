@@ -1,0 +1,40 @@
+name: .NET
+
+on:
+  push:
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: src/IRPFStonks
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Install MAUI Workload
+      run: dotnet workload install maui
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore
+
+    - name: Test
+      uses: zyborg/dotnet-tests-report@v1
+      with:
+        project_path: src/IRPFStonks
+        report_name: IRPFStonk Tests Summary
+        report_title: IRPFStonk Tests
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        set_check_status_from_test_outcome: true
