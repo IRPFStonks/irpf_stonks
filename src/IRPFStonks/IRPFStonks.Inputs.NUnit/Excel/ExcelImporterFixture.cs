@@ -21,6 +21,7 @@ namespace IRPFStonks.Inputs.NUnit.Excel
                 Assert.That(importResult.ImportErrors, Is.Empty);
 
                 Assert.That(importResult.ImportedData[0], Is.Not.Null);
+                Assert.That(importResult.ImportedData, Has.Count.EqualTo(9));
                 var firstRecord = importResult.ImportedData[0];
 
                 Assert.That(firstRecord.Direction, Is.EqualTo(MovementDirection.Credit));
