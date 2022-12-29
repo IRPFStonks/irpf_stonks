@@ -5,9 +5,13 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRPFStonks.View", "IRPFStonks.View\IRPFStonks.View.csproj", "{3A3C333C-5A18-4C3B-9B36-DAE1A7DC3FC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRPFStonks.BusinessLogic", "IRPFStonks.BusinessLogic\IRPFStonks.BusinessLogic.csproj", "{D1278FF7-D024-4B94-A510-3E5FDFF1513A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRPFStonks.BusinessLogic", "IRPFStonks.BusinessLogic\IRPFStonks.BusinessLogic.csproj", "{D1278FF7-D024-4B94-A510-3E5FDFF1513A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRPFStonks.BusinessLogic.NUnit", "IRPFStonks.BusinessLogic.NUnit\IRPFStonks.BusinessLogic.NUnit.csproj", "{116A1BBA-2CAB-4070-819D-759E55B3D7D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRPFStonks.BusinessLogic.NUnit", "IRPFStonks.BusinessLogic.NUnit\IRPFStonks.BusinessLogic.NUnit.csproj", "{116A1BBA-2CAB-4070-819D-759E55B3D7D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRPFStonks.Inputs", "IRPFStonks.Inputs\IRPFStonks.Inputs.csproj", "{76BF8C01-84D6-412D-B5A4-C30DDC52BBA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRPFStonks.Inputs.NUnit", "IRPFStonks.Inputs.NUnit\IRPFStonks.Inputs.NUnit.csproj", "{8080337E-A71A-4D7B-BBF7-454A10EFE531}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{116A1BBA-2CAB-4070-819D-759E55B3D7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{116A1BBA-2CAB-4070-819D-759E55B3D7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{116A1BBA-2CAB-4070-819D-759E55B3D7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76BF8C01-84D6-412D-B5A4-C30DDC52BBA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76BF8C01-84D6-412D-B5A4-C30DDC52BBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76BF8C01-84D6-412D-B5A4-C30DDC52BBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76BF8C01-84D6-412D-B5A4-C30DDC52BBA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8080337E-A71A-4D7B-BBF7-454A10EFE531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8080337E-A71A-4D7B-BBF7-454A10EFE531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8080337E-A71A-4D7B-BBF7-454A10EFE531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8080337E-A71A-4D7B-BBF7-454A10EFE531}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
