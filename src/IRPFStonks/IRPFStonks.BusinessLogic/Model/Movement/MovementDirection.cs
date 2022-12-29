@@ -11,7 +11,7 @@ namespace IRPFStonks.BusinessLogic.Model.Movement
         {
         }
 
-        public static readonly MovementDirection Credit = new("Crédito", 1);
-        public static readonly MovementDirection Debit = new("Débito", 2);
+        public static readonly MovementDirection Credit = new("Credito", 1);
+        public static readonly MovementDirection Debit = new("Debito", 2);
     }
 }

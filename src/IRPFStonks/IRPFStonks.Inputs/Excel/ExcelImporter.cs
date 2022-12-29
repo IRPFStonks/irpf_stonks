@@ -2,6 +2,7 @@
 using IRPFStonks.BusinessLogic.Model.Movement;
 using System.Collections.Immutable;
 using System.Data;
+using System.Globalization;
 using System.Text;
 
 namespace IRPFStonks.Inputs.Excel
@@ -42,10 +43,10 @@ namespace IRPFStonks.Inputs.Excel
                                     var productParts = item.Field<string>(ExpectedHeader.StockCode.Value)!.Split(new[] { '-' });
 
                                     stockMovements.Add(new StockMovement(MovementDirection.FromName(item.Field<string>(ExpectedHeader.MovementDirection.Value)),
-                                        DateTime.Parse(item.Field<string>(ExpectedHeader.Date.Value)),
+                                        DateTime.Parse(item.Field<string>(ExpectedHeader.Date.Value), CultureInfo.CreateSpecificCulture("pt-BR")),
                                         MovementType.FromName(item.Field<string>(ExpectedHeader.MovementType.Value)),
-                                        productParts[0],
-                                        productParts[1],
+                                        productParts[0].Trim(),
+                                        productParts[1].Trim(),
                                         item.Field<string>(ExpectedHeader.Institution.Value),
                                         item.Field<double>(ExpectedHeader.Quantity.Value),
                                         item.Field<double>(ExpectedHeader.UnitPrice.Value),
@@ -55,10 +56,6 @@ namespace IRPFStonks.Inputs.Excel
                                 }
                                 catch (Exception ex)
                                 {
-                                    if(readingErrors.Length == 0)
-                                    {
-                                        continue;
-                                    }
                                     readingErrors.AppendLine(ex.ToString());
                                 }
 
