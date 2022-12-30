@@ -31,10 +31,17 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Test
-      uses: zyborg/dotnet-tests-report@v1
+      run: dotnet test --configuration Release --no-build --no-restore --logger="trx;logfilename=TestResults.Net6.0.trx" --blame-crash --blame-hang-timeout 5m --collect:"XPlat Code Coverage"
+
+    - name: Reporting
+      uses: dorny/test-reporter@v1.6.0
+      if: success() || failure() # run this step even if previous step failed
       with:
-        project_path: src/IRPFStonks
-        report_name: IRPFStonk Tests Summary
-        report_title: IRPFStonk Tests
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        set_check_status_from_test_outcome: true
+        name: 'Test results report'
+        reporter: 'dotnet-trx'
+        path: '**/TestResults/TestResults*.trx'
+        only-summary: 'true'
+        max-annotations: '10'
+        fail-on-error: 'true'
+        list-suites: 'failed'
+        list-tests: 'failed'
