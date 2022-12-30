@@ -39,9 +39,3 @@ jobs:
         report_title: IRPFStonk Tests
         github_token: ${{ secrets.GITHUB_TOKEN }}
         set_check_status_from_test_outcome: true
-    
-    - name: PR Metrics
-      uses: microsoft/PR-Metrics@v1.4.8
-      env:
-        PR_METRICS_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      continue-on-error: true
