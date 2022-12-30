@@ -31,6 +31,7 @@ jobs:
       with:
         reports: '**/TestResults/*/*.xml'
         targetdir: '../Reports'
+        classfilters: "-*xaml"
         reporttypes: 'Clover'
 
     - name: Monitor Coverage
@@ -38,7 +39,7 @@ jobs:
       uses: slavcodev/coverage-monitor-action@1.8.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        clover_file: "../Reports/Clover.xml"
+        coverage_path: "../Reports/Clover.xml"
         threshold_alert: 60
         comment_mode: replace
 
