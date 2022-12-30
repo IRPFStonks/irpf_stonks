@@ -35,5 +35,114 @@ namespace IRPFStonks.Inputs.NUnit.Excel
 
             });
         }
+
+        [Test]
+        public async Task CanNotImport_WrongHeader()
+        {
+            var excelImporter = new ExcelImporter();
+
+            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_WrongHeader.xlsx");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(importResult.IsSuccessful, Is.False);
+                Assert.That(importResult.ImportErrors, Contains.Substring("Stock não pertence ao cabeçalho padrão."));
+                Assert.That(importResult.ImportErrors, Contains.Substring("Preço não pertence ao cabeçalho padrão."));
+            });
+        }
+
+        [Test]
+        public async Task CanNotImport_NoHeader()
+        {
+            var excelImporter = new ExcelImporter();
+
+            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_NoHeader.xlsx");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(importResult.IsSuccessful, Is.False);
+                Assert.That(importResult.ImportErrors, Contains.Substring("Cabeçalho não encontrado."));
+            });
+        }
+
+        [Test]
+        public async Task CanNotImport_InvalidDate()
+        {
+            var excelImporter = new ExcelImporter();
+
+            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_InvalidDate.xlsx");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(importResult.IsSuccessful, Is.False);
+                
+                // At this point i'm not interested in the error message
+                Assert.That(importResult.ImportErrors, Is.Not.Empty);
+            });
+        }
+
+        [Test]
+        public async Task CanNotImport_InvalidMovimentType()
+        {
+            var excelImporter = new ExcelImporter();
+
+            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_InvalidMovimentType.xlsx");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(importResult.IsSuccessful, Is.False);
+
+                // At this point i'm not interested in the error message
+                Assert.That(importResult.ImportErrors, Is.Not.Empty);
+            });
+        }
+
+        [Test]
+        public async Task CanNotImport_InvalidMovimentDirection()
+        {
+            var excelImporter = new ExcelImporter();
+
+            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_InvalidMovimentDirection.xlsx");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(importResult.IsSuccessful, Is.False);
+
+                // At this point i'm not interested in the error message
+                Assert.That(importResult.ImportErrors, Is.Not.Empty);
+            });
+        }
+
+        [Test]
+        public async Task CanNotImport_InvalidUnitPrice()
+        {
+            var excelImporter = new ExcelImporter();
+
+            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_InvalidUnitPrice.xlsx");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(importResult.IsSuccessful, Is.False);
+
+                // At this point i'm not interested in the error message
+                Assert.That(importResult.ImportErrors, Is.Not.Empty);
+            });
+        }
+
+        [Test]
+        public async Task CanNotImport_InvalidTotalPrice()
+        {
+            var excelImporter = new ExcelImporter();
+
+            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_InvalidTotalPrice.xlsx");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(importResult.IsSuccessful, Is.False);
+
+                // At this point i'm not interested in the error message
+                Assert.That(importResult.ImportErrors, Is.Not.Empty);
+            });
+        }
     }
 }

@@ -57,6 +57,7 @@ namespace IRPFStonks.Inputs.Excel
                                 catch (Exception ex)
                                 {
                                     readingErrors.AppendLine(ex.ToString());
+                                    break;
                                 }
 
                             }
@@ -89,16 +90,16 @@ namespace IRPFStonks.Inputs.Excel
             {
                 var header = rows[0][i].ToString();
 
-                if (header is null)
+                if (string.IsNullOrEmpty(header))
                 {
-                    return errors.AppendLine("Cannot find headers").ToString();
+                    return errors.AppendLine("Cabeçalho não encontrado.").ToString();
                 }
 
                 ExpectedHeader.TryFromName(header, true, out var value);
 
                 if (value is null)
                 {
-                    errors.AppendLine($"{header} does belong to the expected header");
+                    errors.AppendLine($"{header} não pertence ao cabeçalho padrão.");
                 }
             }
 

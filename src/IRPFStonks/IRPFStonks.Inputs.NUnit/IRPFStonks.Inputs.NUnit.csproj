@@ -32,6 +32,27 @@
     <None Update="NUnitFiles\movimentacao.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="NUnitFiles\movimentacao_InvalidDate.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NUnitFiles\movimentacao_InvalidMovimentDirection.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NUnitFiles\movimentacao_InvalidMovimentType.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NUnitFiles\movimentacao_InvalidTotalPrice.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NUnitFiles\movimentacao_InvalidUnitPrice.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NUnitFiles\movimentacao_NoHeader.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NUnitFiles\movimentacao_WrongHeader.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
