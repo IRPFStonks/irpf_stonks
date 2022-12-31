@@ -40,8 +40,9 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         coverage_path: "../Reports/Clover.xml"
+        threshold_metric: methods
         threshold_alert: 60
-        comment_mode: replace
+        comment_mode: update
 
     - name: Test
       uses: zyborg/dotnet-tests-report@v1
