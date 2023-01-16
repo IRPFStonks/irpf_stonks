@@ -3,10 +3,18 @@
     /// <summary>
     /// Class that represents an line from the Movimentação spread sheet from Brazilian Stock Exchange Agency
     /// </summary>
-    public class StockMovement : IEquatable<StockMovement?>
+    public sealed class StockMovement : IEquatable<StockMovement?>
     {
 
-        public StockMovement(MovementDirection direction, DateTime date, MovementType type, string stockCode, string stockCompany, string institution, double quantity, double unityPrice, double totalPrice)
+        public StockMovement(MovementDirection direction,
+                             DateTime date,
+                             MovementType type,
+                             string stockCode,
+                             string stockCompany,
+                             string institution,
+                             double quantity,
+                             double unityPrice,
+                             double totalPrice)
         {
             Direction = direction;
             Date = date;
