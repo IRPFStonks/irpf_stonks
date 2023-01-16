@@ -1,7 +1,6 @@
 name: .NET
 
 on:
-  push:
   pull_request:
     branches: [ "main", "develop" ]
 
@@ -24,11 +23,26 @@ jobs:
     - name: Install MAUI Workload
       run: dotnet workload install maui
 
-    - name: Restore dependencies
-      run: dotnet restore
+    - name: Unit Test
+      run: dotnet test --configuration Release --blame-crash --blame-hang-timeout 5m --collect:"XPlat Code Coverage"
 
-    - name: Build
-      run: dotnet build --no-restore
+    - name: Convert Report
+      uses: danielpalme/ReportGenerator-GitHub-Action@5.1.13
+      with:
+        reports: '**/TestResults/*/*.xml'
+        targetdir: '../Reports'
+        classfilters: "-*xaml"
+        reporttypes: 'Clover'
+
+    - name: Monitor Coverage
+      if: github.event_name == 'pull_request'
+      uses: slavcodev/coverage-monitor-action@1.8.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        coverage_path: "../Reports/Clover.xml"
+        threshold_metric: methods
+        threshold_alert: 60
+        comment_mode: update
 
     - name: Test
       uses: zyborg/dotnet-tests-report@v1
