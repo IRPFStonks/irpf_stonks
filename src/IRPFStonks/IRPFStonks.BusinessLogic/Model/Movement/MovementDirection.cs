@@ -3,7 +3,7 @@
 namespace IRPFStonks.BusinessLogic.Model.Movement
 {
     /// <summary>
-    /// These are the direction of a stock moviment.
+    /// These are the direction of a stock movement.
     /// </summary>
     public sealed class MovementDirection : SmartEnum<MovementDirection>
     {
