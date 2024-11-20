@@ -37,16 +37,16 @@
             <ImageButton Aspect="Center"
                          SemanticProperties.Description="Gostei da applicação">
                 <ImageButton.Source>
-                    <FontImageSource FontFamily="IconFontTypes"
-                                     Glyph="{x:Static iconHelper:IconHelper.Heart}"/>
+                    <FontImageSource FontFamily="MaterialDesignIcons"
+                                     Glyph="{x:Static iconHelper:MaterialDesignIcons.Heart}"/>
                 </ImageButton.Source>
             </ImageButton>
 
             <ImageButton Aspect="Center"
                          SemanticProperties.Description="Compartilhar">
                 <ImageButton.Source>
-                    <FontImageSource FontFamily="IconFontTypes"
-                                     Glyph="{x:Static iconHelper:IconHelper.ShareCircle}" />
+                    <FontImageSource FontFamily="MaterialDesignIcons"
+                                     Glyph="{x:Static iconHelper:MaterialDesignIcons.ShareCircle}" />
                 </ImageButton.Source>
             </ImageButton>
 

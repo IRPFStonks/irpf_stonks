@@ -32,11 +32,11 @@
         /// </summary>
         public MovementDirection Direction { get; set; }
         /// <summary>
-        /// Gets the date if the moviment
+        /// Gets the date if the movement
         /// </summary>
         public DateTime Date { get; set; }
         /// <summary>
-        /// Gets the Type of the moviment
+        /// Gets the Type of the movement
         /// </summary>
         public MovementType Type { get; set; }
         /// <summary>
@@ -48,7 +48,7 @@
         /// </summary>
         public string StockCompany { get; set; }
         /// <summary>
-        /// Get the Institution that handle the moviment with the B3 Stock Exchange
+        /// Get the Institution that handle the movement with the B3 Stock Exchange
         /// </summary>
         public string Institution { get; set; }
         /// <summary>

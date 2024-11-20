@@ -1,8 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
@@ -30,16 +28,20 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<PropertyGroup>
+	  <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.22621.0</TargetFrameworks>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\stonksiconfg.svg" Color="#041424" />
 
 		<!-- Splash Screen -->
-    <MauiSplashScreen Include="Resources\stonksiconfg.svg" Color="#041424" />
+		<MauiSplashScreen Include="Resources\stonksiconfg.svg" Color="#041424" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-    <MauiImage Update="Resources\Images\stonks_image.svg" />
+		<MauiImage Update="Resources\Images\stonks_image.svg" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -57,6 +59,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\IRPFStonks.BusinessLogic\IRPFStonks.BusinessLogic.csproj" />
+	  <ProjectReference Include="..\IRPFStonks.Inputs\IRPFStonks.Inputs.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="Controls\LossesDisplay.xaml.cs">
 	    <DependentUpon>LossesDisplay.xaml</DependentUpon>
 	  </Compile>
@@ -69,5 +81,9 @@
 	  <MauiXaml Update="Controls\LossesDisplay.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="$(AssemblyName).NUnit"/>
 	</ItemGroup>
 </Project>

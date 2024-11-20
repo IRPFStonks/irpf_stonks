@@ -42,8 +42,9 @@ namespace IRPFStonks.Inputs.Excel
                                 {
                                     var productParts = item.Field<string>(ExpectedHeader.StockCode.Value)!.Split(new[] { '-' });
 
+
                                     stockMovements.Add(new StockMovement(MovementDirection.FromName(item.Field<string>(ExpectedHeader.MovementDirection.Value)),
-                                        DateTime.Parse(item.Field<string>(ExpectedHeader.Date.Value), CultureInfo.CreateSpecificCulture("pt-BR")),
+                                    DateTime.Parse(item.Field<string>(ExpectedHeader.Date.Value), CultureInfo.CreateSpecificCulture("pt-BR")),
                                         MovementType.FromName(item.Field<string>(ExpectedHeader.MovementType.Value)),
                                         productParts[0].Trim(),
                                         productParts[1].Trim(),
