@@ -1,0 +1,115 @@
+name: Code Coverage Check
+
+on:
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  code-coverage:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET MAUI
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0.x'
+    
+    - name: Install .NET MAUI workload
+      run: dotnet workload install maui
+    
+    - name: Restore dependencies
+      run: dotnet restore src/IRPFStonks
+    
+    - name: Generate Coverage Report
+      run: |
+        cd src/IRPFStonks
+        dotnet test \
+          /p:CollectCoverage=true \
+          /p:CoverletOutputFormat=opencover \
+          /p:CoverletOutput=./coverage/coverage.opencover.xml
+    
+    - name: Check Code Coverage
+      uses: actions/github-script@v6
+      env:
+        # Namespaces that require 100% coverage
+        STRICT_NAMESPACES: "IRPFStonks.BusinessLogic"
+        # Namespaces with 80% coverage requirement
+        STANDARD_NAMESPACES: "IRPFStonks.Inputs,IRPFStonks.View"
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          const fs = require('fs');
+          const xml2js = require('xml2js');
+
+          // Read the coverage report
+          const coverageReport = fs.readFileSync('src/IRPFStonks/coverage/coverage.opencover.xml', 'utf8');
+          
+          // Parse XML
+          const parser = new xml2js.Parser({ explicitArray: false, mergeAttrs: true });
+          
+          parser.parseString(coverageReport, (err, result) => {
+            if (err) {
+              core.setFailed('Failed to parse coverage report');
+              return;
+            }
+
+            // Extract coverage data
+            const modules = result.CoverageSession.Modules.Module;
+            
+            // Get strict and standard namespaces from environment variables
+            const strictNamespaces = process.env.STRICT_NAMESPACES.split(',');
+            const standardNamespaces = process.env.STANDARD_NAMESPACES.split(',');
+
+            let coverageCheckPassed = true;
+            let coverageReport = "Code Coverage Report:\n";
+
+            // Iterate through modules
+            modules.forEach(module => {
+              const classes = module.Classes.Class;
+              
+              classes.forEach(cls => {
+                const namespace = cls.FullName.split('.').slice(0, -1).join('.');
+                const coveragePercent = parseFloat(cls.Summary.coveragePercent);
+
+                // Check coverage for strict namespaces (100% required)
+                if (strictNamespaces.includes(namespace)) {
+                  if (coveragePercent < 100) {
+                    coverageCheckPassed = false;
+                    coverageReport += `❌ ${cls.FullName}: ${coveragePercent.toFixed(2)}% (100% required)\n`;
+                  } else {
+                    coverageReport += `✅ ${cls.FullName}: ${coveragePercent.toFixed(2)}%\n`;
+                  }
+                } 
+                // Check coverage for standard namespaces (80% required)
+                else if (standardNamespaces.includes(namespace)) {
+                  if (coveragePercent < 80) {
+                    coverageCheckPassed = false;
+                    coverageReport += `❌ ${cls.FullName}: ${coveragePercent.toFixed(2)}% (80% required)\n`;
+                  } else {
+                    coverageReport += `✅ ${cls.FullName}: ${coveragePercent.toFixed(2)}%\n`;
+                  }
+                }
+              });
+            });
+
+            // Post comment and set status
+            if (!coverageCheckPassed) {
+              core.setFailed('Code coverage requirements not met');
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `### 🚨 Code Coverage Check Failed\n\n${coverageReport}`
+              });
+            } else {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `### ✅ Code Coverage Check Passed\n\n${coverageReport}`
+              });
+            }
+          });
