@@ -82,11 +82,11 @@ namespace IRPFStonks.Inputs.NUnit.Excel
         }
 
         [Test]
-        public async Task CanNotImport_InvalidMovimentType()
+        public async Task CanNotImport_InvalidMovementType()
         {
             var excelImporter = new ExcelImporter();
 
-            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_InvalidMovimentType.xlsx");
+            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_InvalidMovementType.xlsx");
 
             Assert.Multiple(() =>
             {
@@ -98,11 +98,11 @@ namespace IRPFStonks.Inputs.NUnit.Excel
         }
 
         [Test]
-        public async Task CanNotImport_InvalidMovimentDirection()
+        public async Task CanNotImport_InvalidMovementDirection()
         {
             var excelImporter = new ExcelImporter();
 
-            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_InvalidMovimentDirection.xlsx");
+            var importResult = await excelImporter.ImportFileAsync("./NUnitFiles/movimentacao_InvalidMovementDirection.xlsx");
 
             Assert.Multiple(() =>
             {

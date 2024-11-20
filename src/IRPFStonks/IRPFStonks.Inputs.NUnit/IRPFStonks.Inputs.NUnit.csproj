@@ -55,4 +55,35 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NUnitFiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\NUnitFiles\movimentacao.xlsx" Link="NUnitFiles\movimentacao.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\NUnitFiles\movimentacao_InvalidDate.xlsx" Link="NUnitFiles\movimentacao_InvalidDate.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\NUnitFiles\movimentacao_InvalidMovementDirection.xlsx" Link="NUnitFiles\movimentacao_InvalidMovementDirection.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\NUnitFiles\movimentacao_InvalidMovementType.xlsx" Link="NUnitFiles\movimentacao_InvalidMovementType.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\NUnitFiles\movimentacao_InvalidTotalPrice.xlsx" Link="NUnitFiles\movimentacao_InvalidTotalPrice.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\NUnitFiles\movimentacao_InvalidUnitPrice.xlsx" Link="NUnitFiles\movimentacao_InvalidUnitPrice.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\NUnitFiles\movimentacao_NoHeader.xlsx" Link="NUnitFiles\movimentacao_NoHeader.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\NUnitFiles\movimentacao_WrongHeader.xlsx" Link="NUnitFiles\movimentacao_WrongHeader.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

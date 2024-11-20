@@ -1,11 +1,14 @@
-﻿namespace IRPFStonks.View;
+﻿using IRPFStonks.View.ViewModel;
+
+namespace IRPFStonks.View;
 
 public partial class MainPage : ContentPage
 {
 
-	public MainPage()
+	public MainPage(MainViewModel viewModel)
 	{
 		InitializeComponent();
+		BindingContext = viewModel;
 	}
 }
 

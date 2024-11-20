@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRPFStonks.BusinessLogic", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRPFStonks.BusinessLogic.NUnit", "IRPFStonks.BusinessLogic.NUnit\IRPFStonks.BusinessLogic.NUnit.csproj", "{116A1BBA-2CAB-4070-819D-759E55B3D7D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRPFStonks.Inputs", "IRPFStonks.Inputs\IRPFStonks.Inputs.csproj", "{76BF8C01-84D6-412D-B5A4-C30DDC52BBA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRPFStonks.Inputs", "IRPFStonks.Inputs\IRPFStonks.Inputs.csproj", "{76BF8C01-84D6-412D-B5A4-C30DDC52BBA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRPFStonks.Inputs.NUnit", "IRPFStonks.Inputs.NUnit\IRPFStonks.Inputs.NUnit.csproj", "{8080337E-A71A-4D7B-BBF7-454A10EFE531}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRPFStonks.Inputs.NUnit", "IRPFStonks.Inputs.NUnit\IRPFStonks.Inputs.NUnit.csproj", "{8080337E-A71A-4D7B-BBF7-454A10EFE531}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRPFStonks.View.NUnit", "IRPFStonks.View.NUnit\IRPFStonks.View.NUnit.csproj", "{C8D3E983-EC54-4C5D-B43C-D83F0789EFCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{8080337E-A71A-4D7B-BBF7-454A10EFE531}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8080337E-A71A-4D7B-BBF7-454A10EFE531}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8080337E-A71A-4D7B-BBF7-454A10EFE531}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8D3E983-EC54-4C5D-B43C-D83F0789EFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8D3E983-EC54-4C5D-B43C-D83F0789EFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8D3E983-EC54-4C5D-B43C-D83F0789EFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8D3E983-EC54-4C5D-B43C-D83F0789EFCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
